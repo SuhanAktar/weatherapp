@@ -1,0 +1,146 @@
+:root {
+  --border: rgb(3, 169, 244);
+  
+  --g1: rgb(0, 51, 102);
+  --g2: rgb(0, 102, 204);
+  --g3: rgb(102, 153, 255);
+  ;
+}
+
+body {
+  background-color: rgb(10, 10, 10);
+  display: grid;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  place-items: center;
+}
+
+.card {
+  aspect-ratio: 1 / 1.6;
+  border: 0.5vmin solid var(--border);
+  cursor: pointer;
+  position: relative;
+  width: 56vmin;
+}
+
+.card:hover:before {
+  background-position: 100% 100%;
+  transform: scale(1.08, 1.03);
+}
+
+.card:hover > .card-content {
+  background-position: -10% 0%;
+}
+
+.card:hover > .card-icon {
+  color: white; 
+}
+
+.card:hover > .card-content > .card-subtitle > .card-subtitle-word {  
+  opacity: 1;
+  transform: translateY(0%);
+  transition: opacity 0ms, transform 200ms cubic-bezier(.90, .06, .15, .90);
+}
+
+.card:before {
+  background: linear-gradient(
+    130deg, 
+    transparent 0% 33%, 
+    var(--g1) 66%, 
+    var(--g2) 83.5%, 
+    var(--g3) 100%
+  );
+  background-position: 0% 0%;
+  background-size: 300% 300%;
+  content: "";
+  height: 100%;
+  left: 0px;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  transition: background-position 500ms ease, transform 350ms ease;
+  width: 100%;
+  z-index: 1;
+}
+
+.card-content {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.2) 8%, 
+    transparent 8%
+  );
+  background-position: 0% 0%;
+  background-size: 5vmin 5vmin;
+  height: calc(100% - 10vmin);
+  padding: 5vmin;
+  position: relative;
+  transition: background-position 350ms ease;
+  width: calc(100% - 10vmin);
+  z-index: 2;
+}
+
+.card-title {
+  color: white;
+  position: inherit;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.card-subtitle {
+  color: white;
+  text-align: left;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+  font-size: larger;
+  margin: 0px;
+}
+
+.card-title {
+  font-size: 7vmin;
+}
+
+
+.card-subtitle-word {
+  display: inline-block;
+  margin: 0vmin 0.3vmin;
+  opacity: 0;
+  position: relative;  
+  transform: translateY(30%);
+  transition: ease-in-out;
+}
+
+form {
+  text-align: center;
+}
+
+input {
+  width: 250px;
+  padding: 10px;
+  margin: 0px;
+  border: 0px solid var(--g1);
+  border-radius: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  transition: width 0.3s ease-in-out;
+}
+
+input:focus {
+  width: 225px;
+}
+.submit-button {
+  background-color: #3498db;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--g3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+  transform: scale(0.95);
+}
